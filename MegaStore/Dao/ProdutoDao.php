@@ -2,6 +2,7 @@
 namespace MegaStore\Dao;
 
 use \MegaStore\Models\Produto;
+use \MegaStore\Factory\ConexaoFactory;
 
 class ProdutoDao {
 
@@ -9,7 +10,7 @@ class ProdutoDao {
 
 		$query = "insert into produto (nome,preco) values (:nome,:preco)";
 
-		$con = new \PDO("mysql:host=localhost;dbname=livrophp","root","");
+		$con = ConexaoFactory::getConexao();
 
 		$ps = $con->prepare($query);
 
@@ -26,7 +27,7 @@ class ProdutoDao {
 
 		$query = "select * from produto";
 
-		$con = new \PDO("mysql:host=localhost;dbname=livrophp","root","");
+		$con = ConexaoFactory::getConexao();
 
 		$ps = $con->prepare($query);
 
