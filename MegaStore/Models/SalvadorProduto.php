@@ -1,4 +1,5 @@
 <?php
+namespace MegaStore\Models;
 class SalvadorProduto {
 
 	public function salvaProduto(Produto $produto) {

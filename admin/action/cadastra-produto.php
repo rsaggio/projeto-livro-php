@@ -1,19 +1,18 @@
 <?php 
+	require "../../autoload.php";
 
-	require "../modelos/Produto.php";
-	require "../modelos/SalvadorProduto.php";
+	use \MegaStore\Models\Produto;
+	use \MegaStore\Models\SalvadorProduto;
 
 	$nome = $_GET['nome'];
 	$preco = $_GET['preco'];
 
 	$produto = new Produto();
-	$salvadorProduto = new salvadorProduto();
+	$salvadorProduto = new SalvadorProduto();
 
 	$produto->nome = $nome;
 	$produto->preco = $preco;
 
 	$salvadorProduto->salvaProduto($produto);
-
-
 	
  ?>
