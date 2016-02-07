@@ -21,5 +21,21 @@ class ProdutoDao {
 		return $deuCerto;
 
 	}
+
+	public function listar() {
+
+		$query = "select * from produto";
+
+		$con = new \PDO("mysql:host=localhost;dbname=livrophp","root","");
+
+		$ps = $con->prepare($query);
+
+		$resultado = $ps->execute();
+
+		$produtos = $ps->fetchAll(\PDO::FETCH_CLASS,"\MegaStore\Models\Produto");
+
+		return $produtos;
+		
+	}
 }
 ?>

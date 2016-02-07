@@ -1,3 +1,14 @@
+<?php 
+    require "autoload.php";
+
+    use MegaStore\Dao\ProdutoDao;
+
+    $dao = new ProdutoDao();
+
+    $produtos = $dao->listar();
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -162,96 +173,28 @@
                     <div class="latest-product">
                         <h2 class="section-title">Novidades</h2>
                         <div class="product-carousel">
-                            <div class="single-product">
-                                <div class="product-f-image">
-                                    <img src="http://placehold.it/195x245" alt="Produto">
-                                    <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Comprar</a>
-                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> Detalhes</a>
+                            <?php 
+
+                                foreach($produtos as $produto) {
+                            ?>
+                                <div class="single-product">
+                                    <div class="product-f-image">
+                                        <img src="http://placehold.it/195x245" alt="Produto">
+                                        <div class="product-hover">
+                                            <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Comprar</a>
+                                            <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> Detalhes</a>
+                                        </div>
                                     </div>
+                                    
+                                    <h2><a href="single-product.html"><?= $produto->nome; ?></a></h2>
+                                    
+                                    <div class="product-carousel-price">
+                                        <ins>R$ <?= $produto->preco; ?></ins>
+                                    </div> 
                                 </div>
-                                
-                                <h2><a href="single-product.html">Produto 1</a></h2>
-                                
-                                <div class="product-carousel-price">
-                                    <ins>R$700.00</ins>
-                                </div> 
-                            </div>
-                            <div class="single-product">
-                                <div class="product-f-image">
-                                    <img src="http://placehold.it/195x245" alt="Produto">
-                                    <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Comprar</a>
-                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> Detalhes</a>
-                                    </div>
-                                </div>
-                                
-                                <h2><a href="single-product.html">Produto 2</a></h2>
-                                
-                                <div class="product-carousel-price">
-                                    <ins>R$700.00</ins>
-                                </div> 
-                            </div>
-                            <div class="single-product">
-                                <div class="product-f-image">
-                                    <img src="http://placehold.it/195x245" alt="Produto">
-                                    <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Comprar</a>
-                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> Detalhes</a>
-                                    </div>
-                                </div>
-                                
-                                <h2><a href="single-product.html">Produto 3</a></h2>
-                                
-                                <div class="product-carousel-price">
-                                    <ins>R$700.00</ins>
-                                </div> 
-                            </div>
-                            <div class="single-product">
-                                <div class="product-f-image">
-                                    <img src="http://placehold.it/195x245" alt="Produto">
-                                    <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Comprar</a>
-                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> Detalhes</a>
-                                    </div>
-                                </div>
-                                
-                                <h2><a href="single-product.html">Produto 4</a></h2>
-                                
-                                <div class="product-carousel-price">
-                                    <ins>R$700.00</ins>
-                                </div> 
-                            </div>
-                            <div class="single-product">
-                                <div class="product-f-image">
-                                    <img src="http://placehold.it/195x245" alt="Produto">
-                                    <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Comprar</a>
-                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> Detalhes</a>
-                                    </div>
-                                </div>
-                                
-                                <h2><a href="single-product.html">Produto 5</a></h2>
-                                
-                                <div class="product-carousel-price">
-                                    <ins>R$700.00</ins>
-                                </div> 
-                            </div>
-                            <div class="single-product">
-                                <div class="product-f-image">
-                                    <img src="http://placehold.it/195x245" alt="Produto">
-                                    <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Comprar</a>
-                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> Detalhes</a>
-                                    </div>
-                                </div>
-                                
-                                <h2><a href="single-product.html">Produto 6</a></h2>
-                                
-                                <div class="product-carousel-price">
-                                    <ins>R$700.00</ins>
-                                </div> 
-                            </div>
+                            <?php 
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>
