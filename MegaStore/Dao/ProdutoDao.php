@@ -33,7 +33,7 @@ class ProdutoDao {
 
 		$resultado = $ps->execute();
 
-		$produtos = $ps->fetchAll(\PDO::FETCH_CLASS,"\MegaStore\Models\Produto");
+		$produtos = $ps->fetchAll(\PDO::FETCH_CLASS|\PDO::FETCH_PROPS_LATE,"\MegaStore\Models\Produto");
 
 		return $produtos;
 		

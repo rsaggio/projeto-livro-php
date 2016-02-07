@@ -7,11 +7,9 @@
 	$nome = $_GET['nome'];
 	$preco = $_GET['preco'];
 
-	$produto = new Produto();
+	$produto = new Produto($nome,$preco);
+	
 	$dao = new ProdutoDao();
-
-	$produto->nome = $nome;
-	$produto->preco = $preco;
 
 	$deuCerto = $dao->salvar($produto);
 	
