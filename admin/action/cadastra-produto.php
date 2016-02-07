@@ -2,7 +2,10 @@
 
 	require "functions/manipula-arquivo.php";
 
-	salvaEmArquivo();
+	$nome = $_GET['nome'];
+	$preco = $_GET['preco'];
+
+	salvaEmArquivo($nome,$preco);
 
 
 	

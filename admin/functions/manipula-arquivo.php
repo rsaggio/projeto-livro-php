@@ -1,7 +1,5 @@
 <?php 
-	function salvaProduto() {
-		$nome = $_GET['nome'];
-		$preco = $_GET['preco'];
+	function salvaProduto($nome,$preco) {
 
 		$registro = "$nome,$preco\n";
 
@@ -10,5 +8,6 @@
 		fclose($arquivo);
 
 		echo "Produto salvo com sucesso";
+		
 	}
  ?>
