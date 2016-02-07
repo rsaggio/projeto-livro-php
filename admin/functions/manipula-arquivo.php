@@ -1,9 +1,10 @@
 <?php 
 	function salvaProduto(Produto $produto) {
 
-		$registro = "$produto->nome,$produto->preco\n";
+		$registro = $produto->produtoEmTexto();
 
 		$arquivo = fopen("arquivos.csv","a");
+		
 		fwrite($arquivo,$registro);
 		fclose($arquivo);
 
