@@ -5,6 +5,12 @@
 	<title>Cadastro de produto</title>
 </head>
 <body>
+	<?php 
+		if(isset($_GET['msg'])) {
+			$msg = $_GET['msg'];
+			echo "<p>{$msg}</p>";
+		}
+	 ?>
 	<form action="action/cadastra-produto.php">
 		<div>
 			<label for="nome">Nome</label>	

@@ -16,8 +16,11 @@
 	$deuCerto = $dao->salvar($produto);
 	
 	if($deuCerto) {
-		echo "Produto Cadastrado com sucesso";
+		$msg = "Produto Cadastrado com sucesso";
 	}else {
-		echo "Erro ao cadastrar o produto";
+		$msg = "Erro ao cadastrar o produto";
 	}
+
+	header("Location: ../form-cadastra-produto.php?msg={$msg}");
+
  ?>
