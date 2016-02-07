@@ -7,4 +7,3 @@ class Produto {
 		return "$nome,$preco\n";
 	}
 }
- ?>
