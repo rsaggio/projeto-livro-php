@@ -1,16 +1,9 @@
 <?php 
 
-	$nome = $_GET['nome'];
-	$preco = $_GET['preco'];
+	require "functions/manipula-arquivo.php";
 
-	// o que vamos salvar
-	$registro = "{$nome},{$preco}";
+	salvaEmArquivo();
 
-	// salvando em um arquivo
 
-	$arquivo = fopen("arquivos.csv","a");
-	fwrite($arquivo,$registro);
-	fclose($arquivo);
-
-	echo "Produto salvo com sucesso";
+	
  ?>
