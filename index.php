@@ -186,10 +186,10 @@
                                         </div>
                                     </div>
                                     
-                                    <h2><a href="single-product.html"><?= $produto->nome; ?></a></h2>
+                                    <h2><a href="single-product.html"><?= $produto->getNome(); ?></a></h2>
                                     
                                     <div class="product-carousel-price">
-                                        <ins>R$ <?= $produto->preco; ?></ins>
+                                        <ins>R$ <?= $produto->getPreco(); ?></ins>
                                     </div> 
                                 </div>
                             <?php 

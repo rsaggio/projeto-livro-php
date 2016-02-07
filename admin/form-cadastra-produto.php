@@ -21,6 +21,10 @@
 			<input type="number" id="preco" name="preco">
 		</div>
 		<div>
+			<label for="usado">Usado</label>
+			<input type="checkbox" id="usado" name="usado">
+		</div>
+		<div>
 			<input type="submit" value="Cadastrar">
 		</div>
 	</form>

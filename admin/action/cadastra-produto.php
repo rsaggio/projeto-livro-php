@@ -6,9 +6,12 @@
 
 	$nome = $_GET['nome'];
 	$preco = $_GET['preco'];
+	$usado = isset($_GET['usado']);
 
 	$produto = new Produto($nome,$preco);
-	
+
+	$produto->setUsado($usado);
+
 	$dao = new ProdutoDao();
 
 	$deuCerto = $dao->salvar($produto);
