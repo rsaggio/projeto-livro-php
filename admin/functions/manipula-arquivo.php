@@ -1,13 +1,13 @@
 <?php 
-	function salvaProduto($nome,$preco) {
+	function salvaProduto(Produto $produto) {
 
-		$registro = "$nome,$preco\n";
+		$registro = "$produto->nome,$produto->preco\n";
 
 		$arquivo = fopen("arquivos.csv","a");
 		fwrite($arquivo,$registro);
 		fclose($arquivo);
 
 		echo "Produto salvo com sucesso";
-		
+
 	}
  ?>
