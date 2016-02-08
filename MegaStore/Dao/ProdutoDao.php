@@ -2,6 +2,7 @@
 namespace MegaStore\Dao;
 
 use \MegaStore\Models\Produto;
+use \MegaStore\Models\Categoria;
 use \MegaStore\Factory\ConexaoFactory;
 
 class ProdutoDao {
@@ -38,6 +39,23 @@ class ProdutoDao {
 
 		return $produtos;
 		
+	}
+
+	public function getProdutoComCategoria(Categoria $categoria) {
+
+		$query = "select * from produto where id_categoria = :id";
+
+		$con = ConexaoFactory::getConexao();
+
+		$ps = $con->prepare($query);
+
+		$ps->bindParam(":id",$categoria->getId());
+
+		$resultado = $ps->execute();
+
+		$produtos = $ps->fetchAll(\PDO::FETCH_CLASS|\PDO::FETCH_PROPS_LATE,"\MegaStore\Models\Produto");
+
+		return $produtos;
 	}
 }
 ?>

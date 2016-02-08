@@ -70,12 +70,27 @@
                 </div> 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.php">Inicio</a></li>
                         <?php 
+                            if(isset($_GET['idCategoria'])) {
+                                $idAtual = $_GET['idCategoria'];
+                                $classe = "";
+                            }else {
+                                $idAtual = 0;
+                                $classe = "class=\"active\"";
+                            }
+                         ?>
+                        <li <?= $classe; ?>><a href="index.php">Inicio</a></li>
+                        <?php
                             foreach($categorias as $categoria) {
+                                if ($categoria->getId() == $idAtual) {
                         ?>
-                            <li><a href="#"><?= $categoria->getNome(); ?></a></li>
+                            <li class="active"><a href="categoria.php?idCategoria=<?= $categoria->getId(); ?>"><?= $categoria->getNome(); ?></a></li>
                         <?php 
+                                }else {
+                        ?>
+                                    <li><a href="categoria.php?idCategoria=<?= $categoria->getId(); ?>"><?= $categoria->getNome(); ?></a></li>
+                        <?php
+                                }
                             }
                         ?>
                         <li><a href="contato.php">Contato</a></li>

@@ -36,6 +36,24 @@ class CategoriaDao {
 		return $categorias;
 		
 	}
+
+	public function getPorId($id) {
+
+		$query = "select * from categoria where id = :id";
+
+		$con = ConexaoFactory::getConexao();
+
+		$ps = $con->prepare($query);
+
+		$ps->bindParam(":id",$id);
+
+		$resultado = $ps->execute();
+
+		$categorias = $ps->fetchAll(\PDO::FETCH_CLASS|\PDO::FETCH_PROPS_LATE,"\MegaStore\Models\Categoria");
+		
+		return $categorias[0];
+
+	}
 }
 
 
