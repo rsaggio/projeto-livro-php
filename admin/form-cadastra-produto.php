@@ -1,3 +1,12 @@
+<?php 
+	require "../autoload.php";
+
+	use \MegaStore\Dao\CategoriaDao;
+
+	$dao = new CategoriaDao();
+	$categorias = $dao->listar();
+	
+ ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -19,6 +28,18 @@
 		<div>
 			<label for="preco">Preço</label>	
 			<input type="number" id="preco" name="preco">
+		</div>
+		<div>
+			<label for="categoria">Categoria</label>
+			<select name="categoria" id="categoria">
+				<?php 
+					foreach($categorias as $categoria) {
+				 ?>
+				 	<option value="<?= $categoria->getId(); ?>"><?= $categoria->getNome(); ?></option>
+				 <?php 
+				 	}
+				  ?>
+			</select>
 		</div>
 		<div>
 			<label for="usado">Usado</label>

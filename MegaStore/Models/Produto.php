@@ -7,12 +7,22 @@ namespace MegaStore\Models;
 		private $nome;
 		private $preco;
 		private $usado;
+		private $categoria;
 
 		public function __construct($nome,$preco) {
 			$this->nome = $nome;
 			$this->preco = $preco;
 		}
 
+		public function setCategoria(Categoria $categoria) {
+			$this->categoria = $categoria;
+		}
+
+		public function getCategoria() {
+
+			return $this->categoria;
+			
+		}
 
 		public function getId() {
 			return $this->id;

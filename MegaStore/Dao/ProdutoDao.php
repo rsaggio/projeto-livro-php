@@ -8,7 +8,7 @@ class ProdutoDao {
 
 	public function salvar(Produto $produto) {
 
-		$query = "insert into produto (nome,preco) values (:nome,:preco)";
+		$query = "insert into produto (nome,preco,id_categoria) values (:nome,:preco,:categoria)";
 
 		$con = ConexaoFactory::getConexao();
 
@@ -16,6 +16,7 @@ class ProdutoDao {
 
 		$ps->bindParam(":nome",$produto->getNome());
 		$ps->bindParam(":preco", $produto->getPreco());
+		$ps->bindParam(":categoria", $produto->getCategoria()->getId());
 
 		$deuCerto = $ps->execute();
 

@@ -9,6 +9,9 @@ class Categoria {
 		$this->nome = $nome;
 	}
 
+	public function setId($id) {
+		$this->id = $id;
+	}
 	public function getId() {
 		return $this->id;
 	}
