@@ -5,7 +5,7 @@
 
     $produtoDao = new ProdutoDao();
 
-    $produtos = $produtoDao->listar();
+    $produtos = $produtoDao->getNovidades();
 
 
     include "includes/header.php";

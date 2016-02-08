@@ -41,6 +41,21 @@ class ProdutoDao {
 		
 	}
 
+	public function getNovidades() {
+
+		$query = "select * from produto order by id desc limit 10";
+
+		$con = ConexaoFactory::getConexao();
+
+		$ps = $con->prepare($query);
+
+		$resultado = $ps->execute();
+
+		$produtos = $ps->fetchAll(\PDO::FETCH_CLASS|\PDO::FETCH_PROPS_LATE,"\MegaStore\Models\Produto");
+
+		return $produtos;
+
+	}
 	public function getProdutoComCategoria(Categoria $categoria) {
 
 		$query = "select * from produto where id_categoria = :id";
