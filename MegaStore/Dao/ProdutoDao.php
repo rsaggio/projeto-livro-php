@@ -14,8 +14,8 @@ class ProdutoDao {
 
 		$ps = $con->prepare($query);
 
-		$ps->bindParam(":nome",$produto->nome);
-		$ps->bindParam(":preco", $produto->preco);
+		$ps->bindParam(":nome",$produto->getNome());
+		$ps->bindParam(":preco", $produto->getPreco());
 
 		$deuCerto = $ps->execute();
 

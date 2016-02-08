@@ -2,10 +2,14 @@
     require "autoload.php";
 
     use MegaStore\Dao\ProdutoDao;
+    use MegaStore\Dao\CategoriaDao;
 
-    $dao = new ProdutoDao();
+    $produtoDao = new ProdutoDao();
+    $categoriaDao = new CategoriaDao();
 
-    $produtos = $dao->listar();
+    $produtos = $produtoDao->listar();
+    $categorias = $categoriaDao->listar();
+
 
  ?>
 
@@ -73,12 +77,13 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="index.html">Inicio</a></li>
-                        <li><a href="#">Categoria 1</a></li>
-                        <li><a href="#">Categoria 2</a></li>
-                        <li><a href="#">Categoria 3</a></li>
-                        <li><a href="#">Categoria 4</a></li>
-                        <li><a href="#">Categoria 5</a></li>
-                        <li><a href="#">Categoria 6</a></li>
+                        <?php 
+                            foreach($categorias as $categoria) {
+                        ?>
+                            <li><a href="#"><?= $categoria->getNome(); ?></a></li>
+                        <?php 
+                            }
+                        ?>
                         <li><a href="#">Contato</a></li>
                     </ul>
                 </div>  

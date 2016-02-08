@@ -3,7 +3,7 @@ namespace MegaStore\Models;
 
 	class Produto {
 
-		public $id;
+		private $id;
 		private $nome;
 		private $preco;
 		private $usado;
@@ -14,6 +14,9 @@ namespace MegaStore\Models;
 		}
 
 
+		public function getId() {
+			return $this->id;
+		}
 		public function setUsado($usado) {
 			$this->usado = $usado;
 		}
